@@ -7,8 +7,11 @@ def main():
         print('数据为空')
     else:
         result = analyzer.analyze_excel(df)
-        reporter.report_sales(result,'./output')
-        print('excel文件导出成功！')
+        try:
+            reporter.report_sales(result,'./output')
+            print('excel文件导出成功！')
+        except PermissionError as e:
+            print(e)
 
 
 if __name__ == '__main__':
