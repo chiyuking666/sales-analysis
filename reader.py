@@ -24,4 +24,4 @@ def read_and_merge():
     else:
         return pd.DataFrame()
 
-print(read_and_merge())
+

@@ -53,7 +53,7 @@ def generate_one_excel(index):
             "地区":random.choice(regions),
             "产品":random.choice(products),
             "单价":price,
-            "销量":qty
+            "数量":qty
         }
         rows.append(row)
     df = pd.DataFrame(rows)
@@ -62,7 +62,7 @@ def generate_one_excel(index):
     df.loc[idx,'地区'] = ''
 
     idx = random.sample(range(len(df)), 20)
-    df.loc[idx, '销量'] = 0
+    df.loc[idx, '数量'] = 0
 
     idx = random.sample(range(len(df)), 20)
     df.loc[idx, '单价'] = None
