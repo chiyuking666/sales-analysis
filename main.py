@@ -1,6 +1,6 @@
 import reader
 import analyzer
-import reporter
+import exporter
 def main():
     df=reader.read_and_merge()
     if df.empty:
@@ -8,7 +8,7 @@ def main():
     else:
         result = analyzer.analyze_excel(df)
         try:
-            reporter.report_sales(result,'./output')
+            exporter.export_sales(result,'./output')
             print('excel文件导出成功！')
         except PermissionError as e:
             print(e)

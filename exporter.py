@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-def report_sales(result_dict: dict,path: str) -> str:
+def export_sales(result_dict: dict,path: str) -> str:
     os.makedirs(path, exist_ok=True)
     path = os.path.join(path,'summary.xlsx')
     try:
