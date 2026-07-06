@@ -2,10 +2,11 @@ from pathlib import Path
 import pandas as pd
 
 folder = Path('./input')
-files = []
-dfs = []
+
 
 def read_and_merge():
+    files = []
+    dfs = []
     if not folder.exists():
         print('文件夹不存在')
         return pd.DataFrame()

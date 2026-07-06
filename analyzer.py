@@ -1,5 +1,10 @@
 import pandas as pd
+REQUIRED_COLUMNS = {'数量','单价','产品','地区'}
 def analyze_excel(df: pd.DataFrame):
+    missing = REQUIRED_COLUMNS - set(df.columns)
+    if missing:
+        raise ValueError(f'缺少必需列：{missing}')
+    df = df.copy()
     df = calculate_sales(df)
     df_region = group_by_region(df)
     df_products = group_by_products(df)
@@ -8,7 +13,7 @@ def analyze_excel(df: pd.DataFrame):
         '地区销售统计':df_region,
         '产品销售统计':df_products,
     }
-    return pd.DataFrame(result)
+    return result
 
 def calculate_sales(df: pd.DataFrame) -> pd.DataFrame:
     df['销售额'] = df['数量'] * df['单价']
