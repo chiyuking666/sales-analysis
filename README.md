@@ -19,6 +19,7 @@ sales_project/
 ├── reader.py         # 读取Excel       
 ├── analyzer.py       # 数据清洗，数据统计
 ├── exporter.py       # 导出Excel
+├── generate_data.py  # 生成测试用Excel数据
 ├── main.py           # 程序入口
 │
 └── README.md
@@ -44,6 +45,8 @@ pip install pandas openpyxl
 
 ## 使用方法
 
+### 1. 准备输入数据
+
 把所有销售 Excel 放入
 
 ```
@@ -53,6 +56,16 @@ input/
 当前版本会读取 `input/` 下所有 `.xlsx` 文件，扩展名大小写不敏感，例如 `.xlsx`、`.XLSX` 都会识别。
 
 程序会自动跳过 Excel 打开时产生的临时文件，例如 `~$sales_1.xlsx`。
+
+如果你暂时没有可用的销售数据，可以先运行测试数据生成脚本：
+
+```bash
+python generate_data.py
+```
+
+该脚本会在 `input/` 目录下生成 10 个示例销售 Excel 文件，便于快速验证主流程。
+
+### 2. 运行统计程序
 
 运行
 
